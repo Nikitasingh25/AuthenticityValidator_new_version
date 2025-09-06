@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CertiGuard | Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">CertiGuard Admin</div>
+    <ul class="menu">
+      <li><a href="#dashboard" class="active">📊 Dashboard</a></li>
+      <li><a href="#logs">📜 Scan Logs</a></li>
+      <li><a href="#bulk-upload">📂 Bulk Upload</a></li>
+      <li><a href="#users">👥 Users</a></li>
+      <li><a href="#reports">📑 Reports</a></li>
+      <li><a href="#settings">⚙️ Settings</a></li>
+      <li><a href="index.html">⬅ Back to Site</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Top Navbar -->
+    <header class="topbar">
+      <h2>Admin Dashboard</h2>
+      <div class="topbar-actions">
+        <span class="admin-name">Welcome, Admin123</span>
+        <button id="logoutBtn" type="button">Logout</button>
+      </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section">
+      <h3>System Overview</h3>
+      <div class="cards">
+        <div class="card">
+          <h4>Total Scans</h4>
+          <p id="totalScans">0</p>
+        </div>
+        <div class="card">
+          <h4>Genuine</h4>
+          <p id="genuineCount">0</p>
+        </div>
+        <div class="card">
+          <h4>Fake</h4>
+          <p id="fakeCount">0</p>
+        </div>
+        <div class="card">
+          <h4>Active Users</h4>
+          <p id="activeUsers">5</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logs Section -->
+    <section id="logs" class="section">
+      <h3>Recent Scan Logs</h3>
+      <table class="logs-table">
+        <thead>
+          <tr>
+            <th>File</th>
+            <th>Status</th>
+            <th>Scanned By</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody id="scanLogs">
+          <tr><td colspan="4">No scans yet.</td></tr>
+        </tbody>
+      </table>
+      <button id="exportLogsBtn" type="button" style="margin-top:12px;" onclick="exportLogs()">⬇️ Export Logs (CSV)</button>
+    </section>
+
+    <!-- Bulk Upload Section -->
+    <section id="bulk-upload" class="section">
+      <h3>Bulk Upload</h3>
+      <form id="bulkUploadForm">
+        <!-- Accept whatever you need: APKs or certificates/images -->
+        <input type="file" id="bulkFiles" multiple accept=".apk,.pdf,.jpg,.jpeg,.png,.zip" />
+        <button type="submit">Upload &amp; Scan</button>
+      </form>
+      <p style="margin-top:8px;color:#9aa4b2;">Tip: You can select multiple files at once.</p>
+    </section>
+
+    <!-- Users Section -->
+    <section id="users" class="section">
+      <h3>User Management</h3>
+      <form id="addUserForm">
+        <input type="text" id="username" placeholder="Enter username" required />
+        <input type="email" id="userEmail" placeholder="Enter email" required />
+        <button type="submit">Add User</button>
+      </form>
+      <ul id="userList" style="margin-top:12px;">
+        <li>Admin123 (admin@certiguard.com)</li>
+      </ul>
+    </section>
+
+    <!-- Reports Section -->
+    <section id="reports" class="section">
+      <h3>Reports</h3>
+      <p>Generate detailed reports of scans, fake detections, and trends.</p>
+      <button type="button" id="generateReportBtn">Generate Report</button>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings" class="section">
+      <h3>Settings</h3>
+      <button id="resetDashboard" class="btn-danger" type="button">Reset Dashboard</button>
+    </section>
+
+    <footer style="margin-top:32px;opacity:.7;">© 2025 CertiGuard</footer>
+  </main>
+
+  <!-- Admin JS -->
+  <script src="admin.js"></script>
+
+  <!-- Small helpers (optional, safe even if admin.js already handles them) -->
+  <script>
+    // Optional: logout button redirect
+    const logoutBtn = document.getElementById('logoutBtn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', () => {
+        // Do your real auth logout here if needed
+        window.location.href = 'index.html';
+      });
+    }
+
+    // Optional: highlight active menu link on scroll
+    const menuLinks = document.querySelectorAll('.menu a[href^="#"]');
+    const sections = [...document.querySelectorAll('section.section')];
+
+    function onScroll() {
+      const pos = window.scrollY + 120; // offset for topbar
+      let currentId = sections[0]?.id || '';
+      sections.forEach(sec => {
+        if (sec.offsetTop <= pos) currentId = sec.id;
+      });
+      menuLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + currentId);
+      });
+    }
+    document.addEventListener('scroll', onScroll);
+    onScroll();
+  </script>
+</body>
+</html>

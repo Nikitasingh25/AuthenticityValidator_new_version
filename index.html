@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CertiGuard - Fake Certificate Detection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+<div id="progressBar"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">CertiGuard</div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#scan" class="nav-link">Scan</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how" class="nav-link">How It Works</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="admin.html" class="nav-link">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div>
+      <h1>Protect Against Fake Certificates</h1>
+      <p>AI-powered detection system with instant alerts.</p>
+      <a href="#scan" class="btn-primary">Start Scanning</a>
+    </div>
+  </section>
+  <!-- SCAN SECTION -->
+<section id="scan" class="scan">
+  <h2>Scan Your Certificate</h2>
+  <form id="scanForm" class="scan-box">
+    <label for="certFile">Upload Certificate File:</label>
+    <input type="file" id="certFile" name="certFile" accept=".pdf,.jpg,.jpeg,.png" required>
+    <button type="submit">Scan Now</button>
+  </form>
+</section>
+  <!-- FEATURES -->
+  <section id="features" class="features">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">⚡ Real-time Verification</div>
+      <div class="feature-card">🔒 Secure Upload</div>
+      <div class="feature-card">📊 Detailed Reports</div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step"><span class="step-number">1</span> Upload Certificate</div>
+      <div class="step"><span class="step-number">2</span> AI Verification</div>
+      <div class="step"><span class="step-number">3</span> Instant Results</div>
+    </div>
+  </section>
+  
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Get in touch with our support team.</p>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+  <footer class="footer">
+    <p>&copy; 2025 CertiGuard. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

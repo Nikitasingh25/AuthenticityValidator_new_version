@@ -1,0 +1,234 @@
+/* ===========================
+   CertiGuard Admin Dashboard
+   =========================== */
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.admin-body {
+  display: flex;
+  min-height: 100vh;
+  background: 
+    linear-gradient(rgba(12, 12, 12, 0.92), rgba(20, 20, 20, 0.92)),
+    url("https://images.unsplash.com/photo-1606761568499-6d2451b23cdb?auto=format&fit=crop&w=1350&q=80")
+    no-repeat center center fixed;
+  background-size: cover;
+  color: #eee;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: rgba(15, 15, 15, 0.95);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #333;
+}
+
+.sidebar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffcc00;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sidebar .menu {
+  list-style: none;
+  flex: 1;
+}
+
+.sidebar .menu li {
+  margin-bottom: 1rem;
+}
+
+.sidebar .menu a {
+  text-decoration: none;
+  color: #bbb;
+  padding: 0.6rem 1rem;
+  display: block;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar .menu a:hover,
+.sidebar .menu a.active {
+  background: #ffcc00;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(25, 25, 25, 0.95);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.topbar h2 {
+  color: #ffcc00;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.topbar-actions button {
+  background: #f44336;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.topbar-actions button:hover {
+  background: #d32f2f;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: rgba(30, 30, 30, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.section h3 {
+  margin-bottom: 1.5rem;
+  color: #ffcc00;
+}
+
+/* Dashboard Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h4 {
+  margin-bottom: 1rem;
+  color: #ff9900;
+}
+
+.card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Logs Table */
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.logs-table th,
+.logs-table td {
+  padding: 0.8rem;
+  border: 1px solid #444;
+  text-align: center;
+}
+
+.logs-table th {
+  background: #222;
+  color: #ffcc00;
+}
+
+.logs-table tr:nth-child(even) {
+  background: #2a2a2a;
+}
+
+/* Forms */
+form input,
+form button {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+}
+
+form input {
+  background: #2c2c2c;
+  color: #fff;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+form button {
+  background: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #e6b800;
+}
+
+/* Danger Button */
+.btn-danger {
+  background: #f44336;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-danger:hover {
+  background: #d32f2f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body.admin-body {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  .menu {
+    display: flex;
+    gap: 1rem;
+  }
+  .main-content {
+    padding: 1rem;
+  }
+}
